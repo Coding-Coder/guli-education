@@ -28,6 +28,7 @@ import java.util.List;
 @Api(description = "讲师管理")
 @RestController
 @RequestMapping("/eduservice/teacher")
+@CrossOrigin
 public class EduTeacherController {
 
     @Autowired
@@ -86,6 +87,9 @@ public class EduTeacherController {
         wrapper.eq(level != null, "level", level);
         wrapper.ge(StringUtils.isNotBlank(begin), "gmt_create", begin);
         wrapper.le(StringUtils.isNotBlank(end), "gmt_create", end);
+
+        //排序-创建时间倒序
+        wrapper.orderByDesc("gmt_create");
 
         // 调用方法实现条件查询分页
         teacherService.page(pageTeacher, wrapper);
