@@ -16,7 +16,7 @@ CREATE TABLE `edu_chapter` (
   `gmt_modified` datetime NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`),
   KEY `idx_course_id` (`course_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT COMMENT='课程';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT COMMENT='课程章节:存储课程章节信息';
 
 #
 # Data for table "edu_chapter"
@@ -75,7 +75,7 @@ CREATE TABLE `edu_course` (
   KEY `idx_title` (`title`),
   KEY `idx_subject_id` (`subject_id`),
   KEY `idx_teacher_id` (`teacher_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT COMMENT='课程';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT COMMENT='课程:存储课程基本信息';
 
 #
 # Data for table "edu_course"
@@ -113,7 +113,7 @@ CREATE TABLE `edu_course_description` (
   `gmt_create` datetime NOT NULL COMMENT '创建时间',
   `gmt_modified` datetime NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='课程简介';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='课程简介:存储课程简介信息';
 
 #
 # Data for table "edu_course_description"
@@ -134,7 +134,7 @@ CREATE TABLE `edu_subject` (
   `gmt_modified` datetime NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`),
   KEY `idx_parent_id` (`parent_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT COMMENT='课程科目';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT COMMENT='课程科目:课程分类信息';
 
 #
 # Data for table "edu_subject"
@@ -159,7 +159,7 @@ CREATE TABLE `edu_teacher` (
   `gmt_modified` datetime NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_name` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='讲师';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='讲师:存储讲师信息';
 
 #
 # Data for table "edu_teacher"
@@ -190,7 +190,7 @@ CREATE TABLE `edu_video` (
   PRIMARY KEY (`id`),
   KEY `idx_course_id` (`course_id`),
   KEY `idx_chapter_id` (`chapter_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT COMMENT='课程视频';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT COMMENT='课程视频:每一章节中的课程视频小节信息';
 
 #
 # Data for table "edu_video"
