@@ -12,6 +12,7 @@ import com.lxy.eduservice.mapper.EduSubjectMapper;
 import com.lxy.eduservice.service.EduSubjectService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.InputStream;
@@ -27,6 +28,7 @@ import java.util.List;
  * @since 2021-06-03
  */
 @Service
+@Transactional(rollbackFor = Exception.class)
 public class EduSubjectServiceImpl extends ServiceImpl<EduSubjectMapper, EduSubject> implements EduSubjectService {
     //添加课程分类
     @Override
