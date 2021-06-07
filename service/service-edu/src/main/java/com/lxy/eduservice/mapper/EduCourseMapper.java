@@ -1,7 +1,7 @@
 package com.lxy.eduservice.mapper;
 
-import com.lxy.eduservice.entity.EduCourse;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.lxy.eduservice.entity.EduCourse;
 import com.lxy.eduservice.entity.vo.CoursePublishVo;
 
 /**

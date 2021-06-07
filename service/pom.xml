@@ -124,4 +124,20 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <!--让项目打包时将java目录下的*.xml文件也进行打包-->
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+    </build>
+
 </project>
