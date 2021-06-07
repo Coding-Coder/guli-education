@@ -6,8 +6,10 @@ import com.lxy.eduservice.entity.EduCourseDescription;
 import com.lxy.eduservice.entity.vo.CourseInfoVo;
 import com.lxy.eduservice.entity.vo.CoursePublishVo;
 import com.lxy.eduservice.mapper.EduCourseMapper;
+import com.lxy.eduservice.service.EduChapterService;
 import com.lxy.eduservice.service.EduCourseDescriptionService;
 import com.lxy.eduservice.service.EduCourseService;
+import com.lxy.eduservice.service.EduVideoService;
 import com.lxy.servicebase.exceptionhandler.GuliException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,11 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
     //课程描述注入
     @Autowired
     private EduCourseDescriptionService courseDescriptionService;
+    //注入小节和章节service
+    @Autowired
+    private EduVideoService eduVideoService;
+    @Autowired
+    private EduChapterService chapterService;
 
     //添加课程基本信息的方法
     @Override
@@ -92,5 +99,24 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
     @Override
     public CoursePublishVo publishCourseInfo(String id) {
         return baseMapper.getPublishCourseInfo(id);
+    }
+
+    //删除课程
+    @Override
+    public void removeCourse(String courseId) {
+        //1 根据课程id删除小节
+        eduVideoService.removeVideoByCourseId(courseId);
+
+        //2 根据课程id删除章节
+        chapterService.removeChapterByCourseId(courseId);
+
+        //3 根据课程id删除描述
+        courseDescriptionService.removeById(courseId);
+
+        //4 根据课程id删除课程本身
+        int result = baseMapper.deleteById(courseId);
+        if (result == 0) { //失败返回
+            throw new GuliException(20001, "删除失败");
+        }
     }
 }
