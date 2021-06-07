@@ -7,6 +7,9 @@ import java.math.BigDecimal;
 
 @Data
 public class CourseInfoVo {
+    @ApiModelProperty(value = "课程ID")
+    private String id;
+
     @ApiModelProperty(value = "课程讲师ID")
     private String teacherId;
 
