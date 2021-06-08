@@ -4,7 +4,6 @@ package com.lxy.eduservice.controller;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.lxy.commonutils.R;
 import com.lxy.eduservice.entity.EduCourse;
-import com.lxy.eduservice.entity.EduTeacher;
 import com.lxy.eduservice.entity.vo.CourseInfoVo;
 import com.lxy.eduservice.entity.vo.CoursePublishVo;
 import com.lxy.eduservice.service.EduCourseService;
