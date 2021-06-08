@@ -7,6 +7,7 @@
 |Nginx|9001|
 |service-edu|8001|
 |service-oss|8002|
+|service-vod|8003|
 
 
 ## 项目相关技术链接
