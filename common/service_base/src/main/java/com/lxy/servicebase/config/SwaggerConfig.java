@@ -1,4 +1,4 @@
-package com.lxy.servicebase;
+package com.lxy.servicebase.config;
 
 import com.google.common.base.Predicates;
 import org.springframework.context.annotation.Bean;

@@ -22,7 +22,10 @@ import java.util.List;
 public class CrmBannerServiceImpl extends ServiceImpl<CrmBannerMapper, CrmBanner> implements CrmBannerService {
 
     //查询所有banner
-//    @Cacheable(value = "banner", key = "'selectIndexList'")
+    //value：缓存名
+    //key:缓存的key 使用单引号自定义字符串作为缓存的key值;最终redis中的key为banner::selectIndexList
+    //使用单引号指定分割符，最终会拼接为一个字符串:@Cacheable(key = "#page+'-'+#pageSize")
+    @Cacheable(value = "banner", key = "'selectIndexList'")
     @Override
     public List<CrmBanner> selectAllBanner() {
         //根据sort进行升序排列，显示排列之后前5条记录
