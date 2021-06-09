@@ -36,12 +36,18 @@
 ## 模块信息
 |模块名称|模块描述|端口号|
 |---|---|---|
-|Nginx||9001|
-|Nacos||8848|
 |service-edu|讲师课程管理|8001|
 |service-oss|阿里云对象存储OSS|8002|
 |service-vod|阿里云点播视频VOD|8003|
 |service-cms|首页banner显示|8004|
+
+## 第三方中间件信息
+|中间件|端口号|
+|---|---|
+|Nginx|9001|
+|Nacos|8848|
+|MySQL|3306|
+|Redis|6379|
 
 ## Nginx安装(window版)
 [下载](http://nginx.org/en/download.html) 解压即可使用
@@ -56,7 +62,7 @@ nginx.exe -s stop
 nginx.exe -s reload
 ```
 
-## Nacos Server安装
+## Nacos Server安装(window版)
 1. [下载nacos-server-2.0.1(开发此项目时最新版)](https://github.com/alibaba/nacos/releases/tag/2.0.1)
 2. 解压进入bin目录,修改startup.cmd文件中的`set MODE="standalone"`(新版本中默认为集群模式了)
 3. cmd执行`startup.cmd`启动(也可以不进行第二步操纵，改用`startup.cmd -m standalone`命令)
@@ -64,6 +70,36 @@ nginx.exe -s reload
 
 ## 其他链接
 [阿里图标库iconfont](https://www.iconfont.cn/?spm=a313x.7781069.1998910419.d4d0a486a)
+
+## 单点登录三种常见方式
+
+### 1.session广播机制实现
+基于session复制
+
+### 2.使用cookie+redis实现：
+- 1.在项目的任意模块进行登录，登录之后，把数据存到2个地方
+    - 1.redis中(key：生成唯一随机值(ip、用户id等等)；value:用户数据)
+    - 2.cookie(把redis中生成的key放到cookie中)
+- 2.访问项目中的其他模块，请求时携带cookie
+    - 服务端获取到cookie值，到redis中根据key进行查询，如果查询到数据就直接登录
+
+### 3.使用token(令牌)实现
+- 1.在项目的任意模块进行登录，登录之后，按照规则生成token值，并返回(可以通过cookie或者地址栏返回)
+- 2.再去访问项目其他模块，每次访问都在地址栏带着token
+- 3.服务端获取到token值，可以对token进行解析，如果可以取到用户信息就直接登录
+        
+注：token是什么？按照一定的规则生成字符串，字符串可以包含用户信息(自包含令牌)，然后对这个字符串进行编码和加密。
+
+一般采用通用的规则，如官方规则JWT，JWT就是官方给我们规定好了规则
+
+#### JWT的组成
+由三部分组成：
+- JWT头信息(header)
+- 有效载荷(playload,可以包含用户信息)
+- 签名哈希(signature,防伪)
+
+`signature=HMACSHA256(baser64UrlEncode(header)+"."+baser64UrlEncode(payload),'加盐secret')`
+`JWT=baser64UrlEncode(header)+"."+baser64UrlEncode(payload)+"."+signature`
 
 ## 个人学习进度
 start at 2021-05-31
