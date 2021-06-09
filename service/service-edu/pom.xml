@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>service-edu</artifactId>
+    <description>谷粒学院-讲师课程管理</description>
     <dependencies>
         <dependency>
             <groupId>com.alibaba</groupId>
