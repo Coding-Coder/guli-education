@@ -32,6 +32,7 @@
 - Nginx
 - 阿里云对象存储OSS:[阿里云对象存储OSS-Java SDK文档](https://help.aliyun.com/document_detail/32008.htm?spm=a2c4g.11186623.2.6.4d4df2eeAielrM#concept-32008-zh)
 - 阿里云视频点播VOD:[阿里云视频点播VOD-Java SDK文档](https://help.aliyun.com/document_detail/57756.htm?spm=a2c4g.11186623.2.44.54d779ddQ3RkV9#multiTask1210)
+- 阿里云短信服务SMS:[阿里云短信服务SMS-Java SDK文档](https://help.aliyun.com/document_detail/102715.html?spm=5176.8195934.J_5834642020.6.61de4378h4ADZX)
 
 ## 模块信息
 |模块名称|模块描述|端口号|
@@ -40,6 +41,7 @@
 |service-oss|阿里云对象存储OSS|8002|
 |service-vod|阿里云点播视频VOD|8003|
 |service-cms|首页banner显示|8004|
+|service-msm|阿里云短信服务SMS|8005|
 
 ## 第三方中间件信息
 |中间件|端口号|
@@ -110,4 +112,5 @@ start at 2021-05-31
 - day05:P100-P114
 - day06:P115-P144(注意观影顺序P144与P143顺序反了)
 - day07:P143-P168(注意观影顺序P148与P147顺序反了)
-- day08:P169-P
+- day08:P169-P185
+- day09:P186
