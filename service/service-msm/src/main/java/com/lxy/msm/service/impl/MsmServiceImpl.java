@@ -8,6 +8,7 @@ import com.aliyuncs.IAcsClient;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.profile.DefaultProfile;
 import com.lxy.msm.service.MsmService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -15,6 +16,7 @@ import org.springframework.util.StringUtils;
 import java.util.Map;
 
 @Service
+@Slf4j
 public class MsmServiceImpl implements MsmService {
 
     @Value("${aliyun.sms.keyid}")
@@ -55,6 +57,7 @@ public class MsmServiceImpl implements MsmService {
         try {
             //最终发送
             CommonResponse response = client.getCommonResponse(request);
+            log.info("阿里云短信发送返回内容:[{}]",response.getData());
             return response.getHttpResponse().isSuccess();
         } catch (Exception e) {
             e.printStackTrace();

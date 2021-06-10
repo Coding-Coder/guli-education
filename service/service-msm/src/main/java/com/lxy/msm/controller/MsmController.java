@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import com.lxy.commonutils.R;
 import com.lxy.commonutils.utils.RandomUtil;
 import com.lxy.msm.service.MsmService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.util.StringUtils;
@@ -15,6 +16,7 @@ import java.util.concurrent.TimeUnit;
 @RestController
 @RequestMapping("/edumsm/msm")
 @CrossOrigin
+@Slf4j
 public class MsmController {
 
     @Autowired
@@ -33,7 +35,8 @@ public class MsmController {
         }
         //2 如果redis获取 不到，进行阿里云发送
         //生成随机值，传递阿里云进行发送
-        code = RandomUtil.getFourBitRandom();
+        code = RandomUtil.getSixBitRandom();
+        log.info("生成的随机验证码为:[{}]", code);
         Map<String, Object> param = ImmutableMap.of("code", code);
         //调用service发送短信的方法
         boolean isSend = msmService.send(param, phone);
