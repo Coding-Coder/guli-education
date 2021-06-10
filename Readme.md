@@ -24,12 +24,15 @@
 - Gateway(服务网关)
 - Hystrix(熔断器)
 - Spring-Cloud-Alibaba-Nacos(服务发现+配置中心+消息总线)
+- OAuth2
 
 ### 数据库
 - MySQL
+- Redis
 
 ### 其他
 - Nginx
+- 微信登录
 - 阿里云对象存储OSS:[阿里云对象存储OSS-Java SDK文档](https://help.aliyun.com/document_detail/32008.htm?spm=a2c4g.11186623.2.6.4d4df2eeAielrM#concept-32008-zh)
 - 阿里云视频点播VOD:[阿里云视频点播VOD-Java SDK文档](https://help.aliyun.com/document_detail/57756.htm?spm=a2c4g.11186623.2.44.54d779ddQ3RkV9#multiTask1210)
 - 阿里云短信服务SMS:[阿里云短信服务SMS-Java SDK文档](https://help.aliyun.com/document_detail/102715.html?spm=5176.8195934.J_5834642020.6.61de4378h4ADZX)
