@@ -1,4 +1,4 @@
-package com.atguigu.commonutils;
+package com.lxy.commonutils.utils;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
@@ -16,7 +16,7 @@ import java.util.Date;
 public class JwtUtils {
 
     /**
-     * token过期时间
+     * token过期时间(24h)
      */
     public static final long EXPIRE = 1000 * 60 * 60 * 24;
     /**
@@ -31,7 +31,7 @@ public class JwtUtils {
      * @param nickname 用户名
      * @return
      */
-    public static String getJwtToken(String id, String nickname) {
+    public static String generateJwtToken(String id, String nickname) {
         String jwtToken = Jwts.builder()
                 //jwt第一部分:header
                 .setHeaderParam("typ", "JWT")
@@ -94,6 +94,20 @@ public class JwtUtils {
      */
     public static String getMemberIdByJwtToken(HttpServletRequest request) {
         String jwtToken = request.getHeader("token");
+        if (StringUtils.isEmpty(jwtToken))
+            return "";
+        Jws<Claims> claimsJws = Jwts.parser().setSigningKey(APP_SECRET).parseClaimsJws(jwtToken);
+        Claims claims = claimsJws.getBody();
+        return (String) claims.get("id");
+    }
+
+    /**
+     * 根据token字符串获取用户id
+     *
+     * @param request
+     * @return
+     */
+    public static String getMemberIdByJwtToken(String jwtToken) {
         if (StringUtils.isEmpty(jwtToken))
             return "";
         Jws<Claims> claimsJws = Jwts.parser().setSigningKey(APP_SECRET).parseClaimsJws(jwtToken);

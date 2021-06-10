@@ -42,6 +42,7 @@
 |service-vod|阿里云点播视频VOD|8003|
 |service-cms|首页banner显示|8004|
 |service-msm|阿里云短信服务SMS|8005|
+|service-ucenter|用户中心|8006|
 
 ## 第三方中间件信息
 |中间件|端口号|
