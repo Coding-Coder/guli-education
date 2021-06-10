@@ -57,7 +57,7 @@ public class MsmServiceImpl implements MsmService {
         try {
             //最终发送
             CommonResponse response = client.getCommonResponse(request);
-            log.info("阿里云短信发送返回内容:[{}]",response.getData());
+            log.info("阿里云短信发送返回内容:[{}]", response.getData());
             return response.getHttpResponse().isSuccess();
         } catch (Exception e) {
             e.printStackTrace();

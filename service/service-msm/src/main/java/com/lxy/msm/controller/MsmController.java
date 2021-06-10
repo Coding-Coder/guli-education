@@ -37,7 +37,8 @@ public class MsmController {
         //生成随机值，传递阿里云进行发送
         code = RandomUtil.getSixBitRandom();
         log.info("生成的随机验证码为:[{}]", code);
-        Map<String, Object> param = ImmutableMap.of("code", code);
+        //因为申请阿里云短信模板比较困难，后面申请到的参数改成了${time}
+        Map<String, Object> param = ImmutableMap.of("time", code);
         //调用service发送短信的方法
         boolean isSend = msmService.send(param, phone);
         if (isSend) {
