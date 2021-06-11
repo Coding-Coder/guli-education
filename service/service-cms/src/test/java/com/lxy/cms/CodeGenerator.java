@@ -12,7 +12,7 @@ import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import org.junit.Test;
 
 /**
- * @author
+ * @author lxy
  * @since 2018/12/13
  * @description 每次只需修改表名即可
  */

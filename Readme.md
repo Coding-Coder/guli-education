@@ -32,7 +32,7 @@
 
 ### 其他
 - Nginx
-- 微信登录
+- 微信登录:[微信·开放平台](https://open.weixin.qq.com/)
 - 阿里云对象存储OSS:[阿里云对象存储OSS-Java SDK文档](https://help.aliyun.com/document_detail/32008.htm?spm=a2c4g.11186623.2.6.4d4df2eeAielrM#concept-32008-zh)
 - 阿里云视频点播VOD:[阿里云视频点播VOD-Java SDK文档](https://help.aliyun.com/document_detail/57756.htm?spm=a2c4g.11186623.2.44.54d779ddQ3RkV9#multiTask1210)
 - 阿里云短信服务SMS:[阿里云短信服务SMS-Java SDK文档](https://help.aliyun.com/document_detail/102715.html?spm=5176.8195934.J_5834642020.6.61de4378h4ADZX)
@@ -117,4 +117,5 @@ start at 2021-05-31
 - day06:P115-P144(注意观影顺序P144与P143顺序反了)
 - day07:P143-P168(注意观影顺序P148与P147顺序反了)
 - day08:P169-P185
-- day09:P186
+- day09:P186-P201
+- day10:P202-P
