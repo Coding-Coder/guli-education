@@ -14,10 +14,10 @@ import java.util.List;
 
 public class TestVod {
 
-    public static final String ACCESS_KEY_ID = "LTAI5tKkRBnhBsgGFbDgcmeE";
-    public static final String ACCESS_KEY_SECRET = "bXRn0fVM6BuOAEwES7meTedFFBo5py";
+    public static final String ACCESS_KEY_ID = "LTAI5tCpVW3MButsah5Vts2r";
+    public static final String ACCESS_KEY_SECRET = "YcTS6DxW2AeuqviWp8nPaxpGtg32mO";
 
-    public static final String TEST_VIDEO_ID = "8e8036120f654d0d8d90bc326de96c1d";
+    public static final String TEST_VIDEO_ID = "aa254c152fcc41899f26a370efb0ab86";
 
     //1 根据视频iD获取视频播放地址
     @Test
@@ -49,6 +49,8 @@ public class TestVod {
         DefaultAcsClient client = InitObject.initVodClient(ACCESS_KEY_ID, ACCESS_KEY_SECRET);
 
         GetVideoPlayAuthRequest request = new GetVideoPlayAuthRequest();
+        //设置播放凭证的有效期(默认值：100秒  取值范围：100~3000)
+        request.setAuthInfoTimeout(200L);
         request.setVideoId(TEST_VIDEO_ID);
 
         GetVideoPlayAuthResponse response = client.getAcsResponse(request);
