@@ -29,7 +29,7 @@ INSERT INTO `edu_chapter` VALUES ('1','14','第一章：HTML',0,'2019-01-01 12:2
 #
 
 CREATE TABLE `edu_comment` (
-  `id` char(19) NOT NULL COMMENT '讲师ID',
+  `id` char(19) NOT NULL COMMENT '评论ID',
   `course_id` varchar(19) NOT NULL DEFAULT '' COMMENT '课程id',
   `teacher_id` char(19) NOT NULL DEFAULT '' COMMENT '讲师id',
   `member_id` varchar(19) NOT NULL DEFAULT '' COMMENT '会员id',
