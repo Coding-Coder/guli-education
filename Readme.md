@@ -46,6 +46,7 @@
 |service-cms|首页banner显示|8004|
 |service-msm|阿里云短信服务SMS|8005|
 |service-ucenter|用户中心|8006|
+|service-order|订单支付|8007|
 
 ## 第三方中间件信息
 |中间件|端口号|
@@ -119,4 +120,5 @@ start at 2021-05-31
 - day08:P169-P185
 - day09:P186-P201
 - day10:P202-P221
-- day11:P222-P
+- day11:P222-P239
+- day12:P240

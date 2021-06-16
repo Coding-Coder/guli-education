@@ -2,11 +2,13 @@ package com.lxy.ucenter.controller;
 
 
 import com.lxy.commonutils.R;
+import com.lxy.commonutils.ordervo.UcenterMemberOrder;
 import com.lxy.commonutils.utils.JwtUtils;
 import com.lxy.ucenter.entity.UcenterMember;
 import com.lxy.ucenter.entity.vo.RegisterVo;
 import com.lxy.ucenter.service.UcenterMemberService;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -62,6 +64,16 @@ public class UcenterMemberController {
         //查询数据库根据用户id获取用户信息
         UcenterMember member = memberService.getById(memberId);
         return R.ok().data("userInfo", member);
+    }
+
+    @ApiOperation("根据用户id获取用户信息")
+    @PostMapping("getUserInfoOrder/{id}")
+    public UcenterMemberOrder getUserInfoOrder(@PathVariable String id) {
+        UcenterMember member = memberService.getById(id);
+        //把member对象里面值复制给UcenterMemberOrder对象
+        UcenterMemberOrder ucenterMemberOrder = new UcenterMemberOrder();
+        BeanUtils.copyProperties(member, ucenterMemberOrder);
+        return ucenterMemberOrder;
     }
 }
 

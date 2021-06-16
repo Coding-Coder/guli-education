@@ -3,6 +3,7 @@ package com.lxy.eduservice.controller.front;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.lxy.commonutils.R;
+import com.lxy.commonutils.ordervo.CourseWebVoOrder;
 import com.lxy.eduservice.entity.EduCourse;
 import com.lxy.eduservice.entity.chapter.ChapterVo;
 import com.lxy.eduservice.entity.frontvo.CourseFrontVo;
@@ -10,6 +11,7 @@ import com.lxy.eduservice.entity.frontvo.CourseWebVo;
 import com.lxy.eduservice.service.EduChapterService;
 import com.lxy.eduservice.service.EduCourseService;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -47,6 +49,15 @@ public class CourseFrontController {
         List<ChapterVo> chapterVideoList = chapterService.getChapterVideoByCourseId(courseId);
 
         return R.ok().data("courseWebVo", courseWebVo).data("chapterVideoList", chapterVideoList);
+    }
+
+    @ApiOperation("根据课程id查询课程信息")
+    @PostMapping("getCourseInfoOrder/{id}")
+    public CourseWebVoOrder getCourseInfoOrder(@PathVariable String id) {
+        CourseWebVo courseInfo = courseService.getBaseCourseInfo(id);
+        CourseWebVoOrder courseWebVoOrder = new CourseWebVoOrder();
+        BeanUtils.copyProperties(courseInfo, courseWebVoOrder);
+        return courseWebVoOrder;
     }
 }
 
