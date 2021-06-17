@@ -50,6 +50,7 @@
 |service-ucenter|用户中心|8006|
 |service-order|订单支付|8007|
 |service-statistics|统计分析|8008|
+|service-acl|权限管理|8009|
 |canal-client|canal数据同步工具(工具教学，测试项目时不用启动)|10000|
 |api-gateway|服务网关(教学，测试项目时不用启动)|8222|
 

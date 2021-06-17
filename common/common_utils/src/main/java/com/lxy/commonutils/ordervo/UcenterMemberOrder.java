@@ -18,7 +18,7 @@ import java.util.Date;
  * 会员表
  * </p>
  *
- * @author testjava
+ * @author lxy
  * @since 2020-03-09
  */
 @Data
