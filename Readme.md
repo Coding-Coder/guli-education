@@ -16,15 +16,15 @@
 - 使用Es6的开发规范
 
 ### 后端
+- Mybatis-Plus
 - SpringBoot(2.2.1.RELEASE)
 - SpringCloud(Hoxton.RELEASE)
 - SpringCloudAlibaba(0.2.2.RELEASE)
-- Mybatis-Plus
-- EasyExcel
-- Feign(服务调用)
-- Gateway(服务网关)
-- Hystrix(熔断器)
 - Spring-Cloud-Alibaba-Nacos(服务发现+配置中心+消息总线)
+- Feign(服务调用)
+- Hystrix(熔断器)
+- Spring-Cloud-Gateway(服务网关)
+- EasyExcel
 - OAuth2
 
 ### 数据库
@@ -33,6 +33,7 @@
 
 ### 其他
 - Nginx
+- Canal数据同步工具:把远程库的表内容同步到本地库中
 - 微信登录:[微信·开放平台](https://open.weixin.qq.com/)
 - 阿里云对象存储OSS:[阿里云对象存储OSS-Java SDK文档](https://help.aliyun.com/document_detail/32008.htm?spm=a2c4g.11186623.2.6.4d4df2eeAielrM#concept-32008-zh)
 - 阿里云视频点播VOD:[阿里云视频点播VOD-Java SDK文档](https://help.aliyun.com/document_detail/57756.htm?spm=a2c4g.11186623.2.44.54d779ddQ3RkV9#multiTask1210)
@@ -49,6 +50,7 @@
 |service-ucenter|用户中心|8006|
 |service-order|订单支付|8007|
 |service-statistics|统计分析|8008|
+|canal-client|canal数据同步工具(工具教学，测试时不用启动)|10000|
 
 ## 第三方中间件信息
 |中间件|端口号|
