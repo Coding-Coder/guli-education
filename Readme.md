@@ -12,6 +12,7 @@
 - Element-UI:[Element-UI官方文档](https://element.eleme.cn/#/zh-CN/component/layout)
 - webpack
 - node.js
+- [ECharts](https://echarts.apache.org/)
 - 使用Es6的开发规范
 
 ### 后端
@@ -47,6 +48,7 @@
 |service-msm|阿里云短信服务SMS|8005|
 |service-ucenter|用户中心|8006|
 |service-order|订单支付|8007|
+|service-statistics|统计分析|8008|
 
 ## 第三方中间件信息
 |中间件|端口号|

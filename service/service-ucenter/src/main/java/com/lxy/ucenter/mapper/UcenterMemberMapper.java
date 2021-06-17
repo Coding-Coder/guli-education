@@ -1,7 +1,7 @@
 package com.lxy.ucenter.mapper;
 
-import com.lxy.ucenter.entity.UcenterMember;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.lxy.ucenter.entity.UcenterMember;
 
 /**
  * <p>
@@ -12,5 +12,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2021-06-09
  */
 public interface UcenterMemberMapper extends BaseMapper<UcenterMember> {
-
+    //查询某一天注册人数
+    Integer countRegisterDay(String day);
 }
