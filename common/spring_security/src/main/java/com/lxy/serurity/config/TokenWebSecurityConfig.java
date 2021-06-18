@@ -30,7 +30,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class TokenWebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    //自定义查询用户数据库信息
     private final UserDetailsService userDetailsService;
     private final TokenManager tokenManager;
     private final DefaultPasswordEncoder defaultPasswordEncoder;
@@ -83,7 +82,7 @@ public class TokenWebSecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     public void configure(WebSecurity web) throws Exception {
-//        web.ignoring().antMatchers("/api/**","/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**");
-        web.ignoring().antMatchers("/*/**");
+        web.ignoring().antMatchers("/api/**", "/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**");
+//        web.ignoring().antMatchers("/*/**");
     }
 }
