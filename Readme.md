@@ -114,6 +114,14 @@ nginx.exe -s reload
 `signature=HMACSHA256(baser64UrlEncode(header)+"."+baser64UrlEncode(payload),'加盐secret')`
 `JWT=baser64UrlEncode(header)+"."+baser64UrlEncode(payload)+"."+signature`
 
+### Spring Security权限框架介绍
+1. Spring Security 主要包含两个部分：用户认证(Authentication) 和 用户授权(Authorization)
+    - 用户认证(Authentication)
+        - 进入用户登录时候，输入用户名和密码，查询数据库，输入用户名和密码是否正确，如果正确的话，则认证成功
+    - 用户授权(Authorization)
+        - 登录了系统，登录用户可能是不同的角色，不同的角色有不同的操作功能
+2. Spring Security 本质上就是过滤器Filter，对请求进行过滤
+
 ## 个人学习进度
 start at 2021-05-31
 - day01:P1-P23
@@ -127,4 +135,5 @@ start at 2021-05-31
 - day09:P186-P201
 - day10:P202-P221
 - day11:P222-P239
-- day12:P240
+- day12:P240-P272
+- day13:P273-

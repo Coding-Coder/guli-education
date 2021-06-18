@@ -19,7 +19,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
  * <p>
- * Security配置类
+ * Security配置类-核心配置类
  * </p>
  *
  * @author lxy
@@ -30,6 +30,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class TokenWebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+    //自定义查询用户数据库信息
     private final UserDetailsService userDetailsService;
     private final TokenManager tokenManager;
     private final DefaultPasswordEncoder defaultPasswordEncoder;
@@ -45,7 +46,7 @@ public class TokenWebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     /**
-     * 配置设置
+     * 核心配置设置
      *
      * @param http
      * @throws Exception
@@ -57,7 +58,7 @@ public class TokenWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().csrf().disable()
                 .authorizeRequests()
                 .anyRequest().authenticated()
-                .and().logout().logoutUrl("/admin/acl/index/logout")
+                .and().logout().logoutUrl("/admin/acl/index/logout")//退出登录地址
                 .addLogoutHandler(new TokenLogoutHandler(tokenManager, redisTemplate)).and()
                 .addFilter(new TokenLoginFilter(authenticationManager(), tokenManager, redisTemplate))
                 .addFilter(new TokenAuthenticationFilter(authenticationManager(), tokenManager, redisTemplate)).httpBasic();
@@ -82,10 +83,7 @@ public class TokenWebSecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     public void configure(WebSecurity web) throws Exception {
-//        web.ignoring().antMatchers("/api/**",
-//                "/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**"
-//               );
-        web.ignoring().antMatchers("/*/**"
-        );
+//        web.ignoring().antMatchers("/api/**","/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**");
+        web.ignoring().antMatchers("/*/**");
     }
 }

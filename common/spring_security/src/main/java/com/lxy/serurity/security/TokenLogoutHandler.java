@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * <p>
- * 登出业务逻辑类
+ * 登出处理器：登出业务逻辑类
  * </p>
  *
  * @author lxy

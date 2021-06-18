@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  * <p>
- * token管理
+ * token操作工具类
  * </p>
  *
  * @author lxy
@@ -18,7 +18,7 @@ import java.util.Date;
 @Component
 public class TokenManager {
 
-    private final long tokenExpiration = 24*60*60*1000;
+    private final long tokenExpiration = 24 * 60 * 60 * 1000;
     private final String tokenSignKey = "123456";
 
     public String createToken(String username) {
